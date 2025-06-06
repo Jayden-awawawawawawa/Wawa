@@ -1,0 +1,17 @@
+<!-- Weather form -->
+<div id="weather-container">
+  <input type="text" id="location" placeholder="Enter city">
+  <button onclick="getWeather()">Get Forecast</button>
+  <div id="chatgpt-response"></div>
+</div>
+
+<script>
+async function getWeather() {
+  const response = await fetch('https://your-back4app-domain.com/weather', {
+    method: 'POST',
+    body: JSON.stringify({ location: document.getElementById('location').value })
+  });
+  
+  document.getElementById('chatgpt-response').innerHTML = response.data.gptSummary;
+}
+</script>
